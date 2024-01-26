@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adopt Me v8</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body id="body" style="visibility: hidden">
+    <div id="root">
+      <div class="no-content">Not Rendered</div>
+    </div>
+
+    <script src="./App.jsx" type="module"></script>
+    <!-- simple fix to reduce the flicring while page load -->
+    <script type="text/javascript">
+      window.onload = function () {
+        setTimeout(function () {
+          document.getElementById("body").style.visibility = "visible";
+        }, 300);
+      };
+    </script>
+  </body>
+</html>

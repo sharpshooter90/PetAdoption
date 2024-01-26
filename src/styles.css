@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow-y: scroll;
+}
+
+#root {
+  display: flex;
+  max-width: 780px;
+  margin: 0 auto;
+  flex-direction: column;
+  height: 100%;
+}
+
+.no-content {
+  display: flex;
+  justify-content: center;
+  padding-top: 30%;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.header {
+  position: fixed;
+  top: 1rem;
+  width: 780px;
+  background: #fff;
+  padding: 1rem;
+  z-index: 999;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 240px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.pet {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.pet:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 1rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  /* after scroll position sticky */
+  position: sticky;
+  top: 5.5rem;
+  width: 100%;
+}
+
+input,
+select {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+
+img:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* zoom */
+  transform: scale(0.99);
+  /* smoot animation */
+  will-change: transform;
+  /* fast tranistion */
+  transition: transform 0.2s ease-in-out;
+}
+
+.search-params {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  width: 780px;
+}
+
+.search-form-container {
+  flex-basis: 30%;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.search-result-container {
+  flex-basis: 60%;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.page-content {
+  padding-top: 5.5rem;
+}
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+}
