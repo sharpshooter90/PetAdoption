@@ -12,7 +12,7 @@ body {
   line-height: 1.5;
   color: #333;
   font-weight: 400;
-  background-color: #fff;
+  overflow: hidden;
 }
 
 body {
@@ -65,6 +65,7 @@ img {
   border: 1px solid #e7e7e7;
   border-radius: 4px;
   margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(160, 160, 160, 0.098);
 }
 
 .pet:hover {
@@ -110,7 +111,7 @@ label {
 }
 
 img {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 img:hover {

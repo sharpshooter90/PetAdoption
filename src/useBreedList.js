@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getBreedsList } from "./services/breeds";
+// import { getBreedsList } from "./services/breeds";
 
 const localCache = {};
 
@@ -20,20 +20,19 @@ export default function useBreedList(animal) {
       setBreedList([]);
       setStatus("loading");
 
-      const breedsResponse = await getBreedsList(animal);
-      console.log(breedsResponse);
+      // const breedsResponse = await getBreedsList(animal);
 
-      if (breedsResponse.success) {
-        localCache[animal] = breedsResponse.data;
-      } else {
-        alert("Error Occured while fetching data");
-      }
-      // const res = await fetch(
-      //   `http://pets-v2.dev-apis.com/breeds?animal=${animal}`,
-      // );
+      // if (breedsResponse.success) {
+      //   localCache[animal] = breedsResponse.data;
+      // } else {
+      //   alert("Error Occured while fetching data");
+      // }
+      const res = await fetch(
+        `http://pets-v2.dev-apis.com/breeds?animal=${animal}`,
+      );
 
-      // const json = await res.json();
-      // localCache[animal] = json.breeds || [];
+      const json = await res.json();
+      localCache[animal] = json.breeds || [];
       setBreedList(localCache[animal]);
       setStatus("loaded");
     }
