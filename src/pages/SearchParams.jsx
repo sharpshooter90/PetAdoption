@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import useBreedList from "./useBreedList";
-import Results from "./Results";
-import SearchForm from "./SearchForm";
+
+import useBreedList from "../services/useBreedList";
+import Results from "../components/PetsSearchForm/Results";
+import SearchForm from "../components/PetsSearchForm/SearchForm";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 const SearchParams = () => {
   const [location, setLocation] = useState("");
@@ -9,17 +10,21 @@ const SearchParams = () => {
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const [breeds] = useBreedList(animal);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     requestPets();
   }, []);
 
   async function requestPets() {
+    setIsLoading(true);
+
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`,
     );
     const json = await res.json();
     setPets(json.pets);
+    setIsLoading(false);
     console.log(json);
   }
 
@@ -45,7 +50,7 @@ const SearchParams = () => {
         />
       </div>
       <div className="search-result-container">
-        <Results pets={pets} />
+        <Results pets={pets} isLoading={isLoading} />
       </div>
     </div>
   );

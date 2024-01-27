@@ -1,7 +1,19 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  letter-spacing: -0.1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Libre Baskerville", serif;
 }
 
 html,
@@ -104,6 +116,7 @@ label {
 }
 
 .image-gallery {
+  margin-top: 124px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -130,6 +143,7 @@ img:hover {
   justify-content: space-between;
   margin-bottom: 1rem;
   width: 780px;
+  gap: 24px;
 }
 
 .search-form-container {
@@ -139,13 +153,18 @@ img:hover {
 }
 
 .search-result-container {
-  flex-basis: 60%;
-  flex-shrink: 0;
+  flex-basis: 70%;
   height: 100%;
 }
 
 .page-content {
+  padding: 1rem;
   padding-top: 5.5rem;
+}
+
+.detail-page__title {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 .search-results {
   display: flex;
@@ -154,4 +173,93 @@ img:hover {
   justify-items: center;
   align-items: center;
   height: 100%;
+}
+.card-pet {
+  min-width: 320px;
+  width: 100%;
+}
+.card-pet__name {
+  margin: 8px 0;
+}
+
+.card-pet__meta {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.skeleton {
+  padding: 10px;
+  background-color: #f6f7f8;
+}
+
+/* pet card skeleton loader */
+.skeleton__title,
+.skeleton__description,
+.skeleton__image {
+  background: linear-gradient(90deg, #f6f7f8 25%, #edeef1 50%, #f6f7f8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1s infinite;
+}
+
+.skeleton__title {
+  height: 20px;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.skeleton__description {
+  height: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.skeleton__image {
+  height: 200px;
+  width: 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* form styling */
+/* styles.css */
+.form__input {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form__button {
+  padding: 6px 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form__button:hover {
+  background-color: #0056b3;
+}
+
+.form__select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.form__label,
+.form__select,
+.form__input,
+.form__button {
+  font-size: 14px;
 }
