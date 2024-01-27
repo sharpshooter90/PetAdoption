@@ -13,7 +13,7 @@ const Pet = ({ name, animal, location, breed, images, id, isLoading }) => {
       </div>
     );
   }
-  let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
+  let hero = "https://pets-images.dev-apis.com/pets/none.jpg";
   if (images.length) {
     hero = images[0];
   }
