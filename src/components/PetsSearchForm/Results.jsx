@@ -1,7 +1,7 @@
 import Pet from "../Pet/Pet";
 
 const Results = ({ pets, isLoading }) => {
-  if (!pets.length && !isLoading) {
+  if (!pets?.length && !isLoading) {
     return <h1>No Pets Found</h1>;
   }
 

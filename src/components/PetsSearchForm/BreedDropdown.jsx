@@ -1,16 +1,9 @@
 // BreedDropdown.jsx
-const BreedDropdown = ({ id, breeds, value, disabled, onChange, onBlur }) => {
+const BreedDropdown = ({ id, name, breeds, disabled }) => {
   return (
     <label htmlFor={id} className="form__label">
       Breed
-      <select
-        id={id}
-        value={value}
-        disabled={disabled}
-        onChange={onChange}
-        onBlur={onBlur}
-        className="form__select"
-      >
+      <select id={id} name={name} disabled={disabled} className="form__select">
         <option />
         {breeds.map((breed) => (
           <option key={breed} value={breed}>

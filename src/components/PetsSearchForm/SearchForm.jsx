@@ -17,7 +17,7 @@ const SearchForm = ({
       className="form"
       onSubmit={(e) => {
         e.preventDefault();
-        requestPets();
+        requestPets;
       }}
     >
       <label htmlFor="location" className="form__label">

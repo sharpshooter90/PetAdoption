@@ -4,7 +4,7 @@ import fetchPet from "../services/fetchPet";
 const Details = () => {
   const { id } = useParams();
   const { isLoading, data, error } = useQuery({
-    queryKey: ["petDetails]", id],
+    queryKey: ["petDetails", id],
     queryFn: () => fetchPet(id),
   });
   if (error) {

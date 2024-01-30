@@ -1,13 +1,13 @@
 // AnimalDropdown.jsx
-const AnimalDropdown = ({ id, animals, value, onChange }) => {
+const AnimalDropdown = ({ id, name, animals, value, onChange }) => {
   return (
     <label htmlFor={id} className="form__label">
       Animal
       <select
         id={id}
+        name={name}
         value={value}
         onChange={onChange}
-        onBlur={onChange}
         className="form__select"
       >
         <option />
