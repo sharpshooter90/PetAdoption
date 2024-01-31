@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "../services/fetchPet";
+import Modal from "../components/Modal/Modal";
+
 const Details = () => {
+  const [showModal, setShowModal] = useState(false);
+
   const { id } = useParams();
   const { isLoading, data, error } = useQuery({
     queryKey: ["petDetails", id],
@@ -32,6 +37,25 @@ const Details = () => {
           <img key={index} src={image} alt={`${pet.name} ${index}`} />
         ))}
       </div>
+      <button
+        onClick={() => {
+          setShowModal(true);
+        }}
+      >
+        Adopt Me
+      </button>
+
+      {showModal ? (
+        <Modal>
+          <div className="modal__content">
+            <h1>Would you like to adopt {pet.name}?</h1>
+            <div className="modal__actions">
+              <button>Yes</button>
+              <button onClick={() => setShowModal(false)}>No</button>
+            </div>
+          </div>
+        </Modal>
+      ) : null}
     </div>
   );
 };

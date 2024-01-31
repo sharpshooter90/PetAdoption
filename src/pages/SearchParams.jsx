@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import useBreedList from "../services/useBreedList";
 import Results from "../components/PetsSearchForm/Results";
 import AnimalDropdown from "../components/PetsSearchForm/AnimalDropdown";
 import BreedDropdown from "../components/PetsSearchForm/BreedDropdown";
 import useAnimalList from "../services/useAnimalList";
+
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
