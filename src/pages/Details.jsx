@@ -1,11 +1,15 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "../services/fetchPet";
 import Modal from "../components/Modal/Modal";
+import AdoptedPetContext from "../context/AdoptedPetContext";
 
 const Details = () => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
+  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
   const { id } = useParams();
   const { isLoading, data, error } = useQuery({
@@ -29,29 +33,42 @@ const Details = () => {
   }
   return (
     <div className="page-content">
-      {/* #TODO: add a skeleton for all the components */}
       <h1 className="detail-page__title">{pet.name}</h1>
       <p>{pet.description}</p>
+      <button
+        onClick={() => {
+          setShowModal(true);
+        }}
+        className="button button--primary"
+      >
+        Adopt Me
+      </button>
       <div className="image-gallery">
         {pet.images.map((image, index) => (
           <img key={index} src={image} alt={`${pet.name} ${index}`} />
         ))}
       </div>
-      <button
-        onClick={() => {
-          setShowModal(true);
-        }}
-      >
-        Adopt Me
-      </button>
 
       {showModal ? (
         <Modal>
           <div className="modal__content">
             <h1>Would you like to adopt {pet.name}?</h1>
             <div className="modal__actions">
-              <button>Yes</button>
-              <button onClick={() => setShowModal(false)}>No</button>
+              <button
+                onClick={() => {
+                  setAdoptedPet(pet);
+                  navigate("/");
+                }}
+                className="button button--primary"
+              >
+                Yes
+              </button>
+              <button
+                onClick={() => setShowModal(false)}
+                className="button button--secondary"
+              >
+                No
+              </button>
             </div>
           </div>
         </Modal>
